@@ -1,39 +1,35 @@
 package com.ITAcademy.itBotigaQuadres.bean;
 
-import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "franchise")
 public class Franchise {
-	private @Id @GeneratedValue Long id;
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private Long id;
 	private String franchiseName;
-	
-	@OneToMany(mappedBy = "franchise")
-	private List<Shop> shops;
 
 	public Franchise() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public Franchise(String franchiseName) {
-		super();
+	
 		this.franchiseName = franchiseName;
 	}
 
-	public List<Shop> getShops() {
-		return shops;
+	public Franchise(Long id2) {
+		this.id = id2;
 	}
 
-	public void setShops(List<Shop> shops) {
-		this.shops = shops;
-	}
 
-	public Long getId() {
+	public Long getId(Long id2) {
 		return id;
 	}
 

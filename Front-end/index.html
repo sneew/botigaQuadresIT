@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Ex BQ</title>
+		<link href="styles/styles.css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="scripts/script.js"></script>
+	</head>
+	<body>
+		<h1>Exercici Botiga de quadres</h1>
+		<h1 id="insert"> </h1>
+		<div id="add1">
+			<h2>Add a new shop:</h2>
+			Shop name: <input type="text" id="shopName" placeholder="Write name"> </br>
+			Shop capacity: 	<input type="number" id="shopCapacity" placeholder="Number">	</br>
+			<button type="button" id="add-shop">Add new shop</button>
+		</div>
+		<div id="add2">
+			<h2>Add a new painting:</h2>
+			Painting name: <input type="text" id="paintingName" placeholder="Write name"> </br>
+			Author name:	<input type="text" id="authorName" placeholder="Write name and surname">	</br>
+			Shop: <select id="selectShop">
+				<option value="" disabled selected>Select your option</option>
+			</select>
+			<button type="button" id="add-painting">Add new painting</button>
+		</div>
+		<div>
+			<div id="response1">
+				<h2>Response:</h2> 
+				Shop: <select id="selectShopToShow">
+					<option value="" disabled selected>Select a shop</option>
+				</select> </br>
+				<button type="button" id="burn-paintings">Burn paintings</button>
+				
+				<div id="botiga">
+					<h3 id="shopList"></h3>
+					<ul id="paintingList"></ul>
+				</div>
+					
+				
+			</div>
+		</div>
+	</body>
+</html>

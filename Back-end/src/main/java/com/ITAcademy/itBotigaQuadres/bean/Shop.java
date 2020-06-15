@@ -1,48 +1,48 @@
 package com.ITAcademy.itBotigaQuadres.bean;
 
-import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "shop")
 public class Shop {
 	
-	private @Id @GeneratedValue Long id;
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String shopName;
 	private int shopCapacity;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="franchise_id")
+	@JsonIgnore
 	private Franchise franchise;
-	
-	@OneToMany(mappedBy = "shop")
-	private List<Painting> paintings;
 	
 	public Shop() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Shop(String shopName, int shopCapacity) {
+	
+	public Shop(String shopName, int shopCapacity, Franchise franchise) {
 		super();
 		this.shopName = shopName;
 		this.shopCapacity = shopCapacity;
+		this.franchise = franchise;
 	}
 
-
-
-	public List<Painting> getPaintings() {
-		return paintings;
+	public Franchise getFranchise() {
+		return franchise;
 	}
 
-	public void setPaintings(List<Painting> paintings) {
-		this.paintings = paintings;
+	public void setFranchise(Franchise franchise) {
+		this.franchise = franchise;
 	}
 
 	public Long getId() {
